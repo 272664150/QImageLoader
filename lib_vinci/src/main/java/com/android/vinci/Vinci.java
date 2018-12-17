@@ -8,6 +8,7 @@ import android.graphics.Bitmap;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.TintContextWrapper;
 import android.view.View;
 
 import com.android.vinci.config.LoaderOptions;
@@ -191,7 +192,8 @@ public class Vinci implements ILoaderStrategy {
                 return activity.isFinishing();
             }
         } else if (context instanceof Service
-                || context instanceof Application) {
+                || context instanceof Application
+                || context instanceof TintContextWrapper) {
             return false;
         }
         return true;
